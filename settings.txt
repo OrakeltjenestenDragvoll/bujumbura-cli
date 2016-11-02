@@ -1,0 +1,5 @@
+COM7
+url example - jdbc:mysql://nix.felles.ntnu.no:3306/
+database
+user
+password
