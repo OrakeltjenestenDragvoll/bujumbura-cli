@@ -1,5 +1,3 @@
 COM7
-url example - jdbc:mysql://nix.felles.ntnu.no:3306/
-database
-user
-password
+http://localhost:8001/bujumbura/api/report/
+5488930ed0f1409da71e2df7978375eb

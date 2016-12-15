@@ -4,10 +4,8 @@ import java.io.*;
 
 public class Settings {
 	private String comPort;
-	private String sqlURL;
-	private String sqlDB;
-	private String sqlUser;
-	private String sqlPassword;
+	private String URL;
+	private String apiKey;
 	
 	public Settings(KnappSys ksys){
 		  FileInputStream fstream;
@@ -16,10 +14,8 @@ public class Settings {
 			DataInputStream in = new DataInputStream(fstream);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 			this.comPort = br.readLine();
-			this.sqlURL = br.readLine();
-			this.sqlDB = br.readLine();
-			this.sqlUser = br.readLine();
-			this.sqlPassword = br.readLine();
+			this.URL = br.readLine();
+			this.apiKey = br.readLine();
 			
 			br.close();
 			in.close();
@@ -39,14 +35,9 @@ public class Settings {
 			BufferedWriter out = new BufferedWriter(fstream);
 			out.write(comPort);
 			out.newLine();
-			out.write(sqlURL);
+			out.write(URL);
 			out.newLine();
-			out.write(sqlDB);
-			out.newLine();
-			out.write(sqlUser);
-			out.newLine();
-			out.write(sqlPassword);
-			out.close();
+			out.write(apiKey);
 		}catch (Exception e){//Catch exception if any
 			System.err.println("Error: " + e.getMessage());
 		}
@@ -59,36 +50,19 @@ public class Settings {
 		this.comPort = comPort;
 	}
 
-	public String getSqlURL() {
-		return sqlURL;
+	public String getURL() {
+		return URL;
 	}
 
-	public void setSqlURL(String sqlURL) {
-		this.sqlURL = sqlURL;
+	public void setURL(String URL) {
+		this.URL = URL;
 	}
 
-	public String getSqlDB() {
-		return sqlDB;
+	public String getApiKey() {
+		return apiKey;
 	}
 
-	public void setSqlDB(String sqlDB) {
-		this.sqlDB = sqlDB;
+	public void setApiKey(String apiKey) {
+		this.apiKey = apiKey;
 	}
-
-	public String getSqlUser() {
-		return sqlUser;
-	}
-
-	public void setSqlUser(String sqlUser) {
-		this.sqlUser = sqlUser;
-	}
-
-	public String getSqlPassword() {
-		return sqlPassword;
-	}
-
-	public void setSqlPassword(String sqlPassword) {
-		this.sqlPassword = sqlPassword;
-	}
-
 }

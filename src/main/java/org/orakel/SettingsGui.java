@@ -12,12 +12,8 @@ public class SettingsGui extends JFrame
 	JTextField comField = new JTextField(20);
 	JLabel serverLabel = new JLabel("Server Address");
 	JTextField serverField = new JTextField(20);
-	JLabel dbNameLabel = new JLabel("Database name");
-	JTextField dbNameField = new JTextField(20);
-	JLabel dbUserLabel = new JLabel("Database username");
-	JTextField dbUserField = new JTextField(20);
-	JLabel dbPwdLabel = new JLabel("Database password");
-	JTextField dbPwdField = new JTextField(20);
+	JLabel apiKeyLabel = new JLabel("Api key");
+	JTextField apiKeyField = new JTextField(20);
 	
 	JButton save = new JButton("Save");
 	JButton cancel = new JButton("Cancel");
@@ -30,21 +26,15 @@ public class SettingsGui extends JFrame
 		Container con = this.getContentPane();
 		con.add(pane);
 		setVisible(false);
-		
-		
+
 		pane.setLayout(new GridLayout(6,2,5,5));
 		
 		pane.add(comLabel);
 		pane.add(comField);
 		pane.add(serverLabel);
 		pane.add(serverField);
-		pane.add(dbNameLabel);
-		pane.add(dbNameField);
-		pane.add(dbUserLabel);
-		pane.add(dbUserField);
-		pane.add(dbPwdLabel);
-		pane.add(dbPwdField);
-		
+		pane.add(apiKeyLabel);
+		pane.add(apiKeyField);
 			
 		pane.add(save);
 		pane.add(cancel);
@@ -52,10 +42,8 @@ public class SettingsGui extends JFrame
 	}
     public void setSettings(Settings settings){
 		comField.setText(settings.getComPort());
-		serverField.setText(settings.getSqlURL());
-		dbNameField.setText(settings.getSqlDB());
-		dbUserField.setText(settings.getSqlUser());
-		dbPwdField.setText(settings.getSqlPassword());    	
+		serverField.setText(settings.getURL());
+		apiKeyField.setText(settings.getApiKey());
     }
     public void addController(ActionListener controller)
     {
@@ -81,15 +69,7 @@ public class SettingsGui extends JFrame
     }
     public String getDbName()
     {
-    	return dbNameField.getText();
-    }
-    public String getDbUser()
-    {
-    	return dbUserField.getText();
-    }
-    public String getDbPwd()
-    {
-    	return dbPwdField.getText();
+    	return apiKeyField.getText();
     }
 
 }

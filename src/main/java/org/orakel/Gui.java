@@ -10,7 +10,7 @@ public class Gui extends JFrame
 	private static final long serialVersionUID = -6587937094938003031L;
 	JPanel pane = new JPanel();
 	JButton settings = new JButton("Settings");
-	JButton test = new JButton("Test SQL connection");
+	JButton test = new JButton("Test api connection");
 	JTextArea text = new JTextArea(13,25);
     ArrayList<String> strlist = new ArrayList<String>();
 	
