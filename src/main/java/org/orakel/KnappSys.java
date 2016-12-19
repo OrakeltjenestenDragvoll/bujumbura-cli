@@ -7,7 +7,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -31,8 +30,7 @@ public class KnappSys implements ActionListener{
 		System.out.println(settings.getComPort());
 		Serial main = new Serial();
 		main.initialize(this);
-		prepareAndSendRecord("7");
-	}	
+	}
 
 	public static void main(String[] args) throws Exception {
 		new KnappSys();
@@ -49,12 +47,6 @@ public class KnappSys implements ActionListener{
 	public void actionPerformed(ActionEvent e) 
 	{
 		Object source = e.getActionCommand();
-		if(source == "Test SQL connection")
-		{
-			this.newMessage("Testing endpoint");
-			this.newMessage("Testing complete");
-			
-		}
 		if(source == "Settings")
 		{
 			this.newMessage("settings");
@@ -88,7 +80,6 @@ public class KnappSys implements ActionListener{
 		if (serialInput.length()>0){
 			reportCode = Integer.parseInt(serialInput);
 			Date date = new Date();
-			view.addText(reportCode +" "+ dateFormat.format(date) + " " + hourFormat.format(date) );
 
 
 			HttpClient client = new DefaultHttpClient();
@@ -129,6 +120,7 @@ public class KnappSys implements ActionListener{
 			try {
 				post.setEntity(new UrlEncodedFormEntity(urlParameters));
 				client.execute(post);
+				view.addText(reportCode +" "+ dateFormat.format(date) + " " + hourFormat.format(date) );
 			} catch (Exception e) {
 				view.addText("Error: " + e.toString());
 			}

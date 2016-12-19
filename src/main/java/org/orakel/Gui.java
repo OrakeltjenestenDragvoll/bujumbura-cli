@@ -10,7 +10,6 @@ public class Gui extends JFrame
 	private static final long serialVersionUID = -6587937094938003031L;
 	JPanel pane = new JPanel();
 	JButton settings = new JButton("Settings");
-	JButton test = new JButton("Test api connection");
 	JTextArea text = new JTextArea(13,25);
     ArrayList<String> strlist = new ArrayList<String>();
 	
@@ -24,15 +23,12 @@ public class Gui extends JFrame
 		setVisible(true);
 		
 		pane.add(settings);
-		pane.add(test);
 		pane.add(text);
 		
 	}
     public void addController(ActionListener controller)
     {
 		settings.addActionListener(controller);
-		test.addActionListener(controller);
-    	
     }
 	public void addText(String newLine)
 	{
