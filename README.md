@@ -30,3 +30,7 @@ Compile each file with the command `javac -cp ".:../../../lib/*" org/orakel[File
 ## Run
 Change directory to `bujumbura-cli/bin`.  
 Run Bujumbura-cli with `java -cp .:../lib/\* org/orakel/KnappSys`.
+
+### Known errors
+"Could not find rxtxSerial in java.library.path" på Linux:  
+Last ned librxtxSerial.so og plasser etter instruksjonene i rxtx-mappen.  
